@@ -1,0 +1,77 @@
+/* Menetapkan property ini ke seluruh elemen dengan universal selector, tanpa box-sizing: border-box; , ketika menambahkan width.Padding dan border bertambah masing masing sehingga elemen tidak sesuai dari width yg diberikan */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    /* Font yang diutamakan adalah Quicksand, jika tidak ada, maka akan fallback ke sans-serif */
+    font-family: "Quicksand", sans-serif;
+
+    /* value 100vh membuat browser menampilkan elemen secara full memenuhi layar atau 100 viewport hight  */
+    height: 100vh;
+
+    /* Margin 0 fungsinya agar tidak ada ruang, jarak/ruang sisa, karena secara default browser margin: 8; */
+    margin: 0;
+
+    /* property pertama untuk mengaktifkan flex (parent), kedua membuat flex item menjadi kearah vertikal (atas ke bawah) */
+    display: flex;
+    flex-direction: column;
+}
+
+header.navbar-container {
+    /* width navbar 100% dari layar */
+    width: 100%;
+
+    /* width tidak akan lebih besar dari 1200px, gunanya pada monitor 4K navigasi gak akan terlalu lebar */
+    max-width: 1200px;
+    padding-block: 1rem;
+
+    /* memberikan margin kiri dan kanan secara otomatis */
+    margin-inline: auto;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    /* elemen navbar akan berada di paling atas  */
+    z-index: 9999;
+}
+
+header.navbar-container .logo img {
+    width: 150px;
+}
+
+header.navbar-container .nav-list ul {
+    padding-left: 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 2rem 1rem;
+}
+
+/* menghilangkan bullet pada list */
+header.navbar-container .nav-list li {
+    list-style: none;
+}
+
+header.navbar-container .nav-list li a {
+    padding: 0.5rem 1.5rem;
+    border-radius: 999px;
+
+    /* menghilangkan underline pada anchor */
+    text-decoration: none;
+
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: black;
+
+    transition: all 0.2s ease-in-out;
+}
+
+/* hover untuk anchor link */
+header.navbar-container .nav-list li:hover a {
+    background-color: #425c77;
+    color: white;
+}
